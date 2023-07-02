@@ -17,7 +17,7 @@ class _DesktopScreenState extends State<DesktopScreen> {
           width: double.infinity,
           height: double.infinity,
           child: Image.asset(
-            'assets/use.jpg',
+            'assets/use1.jpg',
             fit: BoxFit.fitWidth,
             width: double.infinity,
           ),

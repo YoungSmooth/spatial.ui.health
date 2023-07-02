@@ -51,7 +51,9 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: Colors.black.withOpacity(0.7)),
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.7),
+      ),
       child: Row(
         children: [
           Expanded(
@@ -186,14 +188,72 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                               Positioned.fill(
                                 child: Padding(
                                   padding: const EdgeInsets.only(left: 10),
-                                  child: Image.asset('assets/heart.png'),
+                                  child: Image.asset(
+                                    'assets/heart.png',
+                                  ),
                                 ),
                               ),
                               Positioned.fill(
+                                left: 110,
+                                bottom: 110,
+                                right: 100,
+                                top: 110,
+                                child: FittedBox(
                                   child: SizedBox(
-                                      height: 30,
-                                      width: 30,
-                                      child: TinyCircleDotsForHeart()))
+                                    height: 30,
+                                    width: 30,
+                                    child: TinyCircleDotsForHeart(),
+                                  ),
+                                ),
+                              ),
+                              Positioned.fill(
+                                left: 110,
+                                bottom: 185,
+                                right: 60,
+                                top: 35,
+                                child: FittedBox(
+                                  child: SizedBox(
+                                    height: 30,
+                                    width: 30,
+                                    child: TinyCircleDotsForHeart(),
+                                  ),
+                                ),
+                              ),
+                              Positioned.fill(
+                                left: 140,
+                                bottom: 55,
+                                right: 60,
+                                top: 165,
+                                child: FittedBox(
+                                  child: SizedBox(
+                                    height: 30,
+                                    width: 30,
+                                    child: TinyCircleDotsForHeart(),
+                                  ),
+                                ),
+                              ),
+                              Positioned.fill(
+                                left: 70,
+                                bottom: 95,
+                                right: 140,
+                                top: 125,
+                                child: FittedBox(
+                                  child: SizedBox(
+                                    height: 30,
+                                    width: 30,
+                                    child: TinyCircleDotsForHeart(),
+                                  ),
+                                ),
+                              ),
+                              Positioned.fill(
+                                left: 10,
+                                bottom: 20,
+                                right: 70,
+                                top: 150,
+                                child: FittedBox(
+                                  child: HeartRate(),
+                                ),
+                              ),
                             ],
                           ),
                         ),
@@ -211,12 +271,7 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
           ),
         ],
       ),
-    )
-        //
-        .frosted(
-      // frostColor: Colors.white.withOpacity(0.1),
-      blur: 0.5,
-    );
+    ).frosted(frostOpacity: 0.1, frostColor: Colors.grey, blur: 7.0);
   }
 }
 
@@ -232,17 +287,16 @@ class _TransparentBackgroundTopState extends State<TransparentBackgroundTop> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: Colors.black.withOpacity(0.8)),
+      decoration: BoxDecoration(
+        color: Colors.transparent.withOpacity(0.1),
+      ),
       child: Center(
         child: Text(
-          'https://dribbble.com/stories/2023/06/14/spatial_ui_design?utm_campaign=2023-06-21&utm_medium=email&utm_source=insider-20230621',
+          'Pending',
           style: TextStyle(color: Colors.white),
         ),
       ),
-    ).frosted(
-      frostColor: Colors.white.withOpacity(0.1),
-      blur: 2.0,
-    );
+    ).blurred(blurColor: Colors.transparent, blur: 15.0);
   }
 }
 
@@ -265,7 +319,7 @@ class CircleWithBorder extends StatelessWidget {
           backgroundColor: Colors.grey.withOpacity(0.1),
           child: Center(
               child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(15.0),
             child: CircleWithBorder1(),
           )),
         ),
@@ -282,8 +336,8 @@ class CircleWithBorder1 extends StatefulWidget {
 }
 
 class _CircleWithBorder1State extends State<CircleWithBorder1> {
-  Color borderColor = Colors.grey.shade700;
-  Color mainColor = Colors.grey.shade400.withOpacity(0.2);
+  Color borderColor = Colors.grey.shade900;
+  Color mainColor = Colors.blue.shade400.withOpacity(0.1);
 
   @override
   Widget build(BuildContext context) {
@@ -308,25 +362,33 @@ class TinyCircleDotsForHeart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        border: Border.all(
-          color: Colors.grey.shade700,
-          width: 1.0,
+    return SizedBox(
+      height: 30,
+      width: 30,
+      child: Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(
+            color: Colors.grey.shade100,
+            width: 0.5,
+          ),
         ),
-      ),
-      child: Stack(children: [
-        CircleAvatar(
-          radius: double.maxFinite,
-          backgroundColor: Colors.grey.withOpacity(0.1),
-          child: Center(
+        child: Stack(children: [
+          CircleAvatar(
+            radius: double.maxFinite,
+            backgroundColor: Colors.transparent.withOpacity(0.1),
+            child: Center(
               child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: CircleWithBorder1(),
-          )),
-        ),
-      ]),
+                padding: const EdgeInsets.all(8.0),
+                child: CircleAvatar(
+                  radius: 30,
+                  backgroundColor: Colors.white,
+                ),
+              ),
+            ),
+          ).blurred(borderRadius: BorderRadius.circular(25), blur: 0.1),
+        ]),
+      ),
     );
   }
 }
@@ -448,5 +510,72 @@ class IconCircle2 extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class HeartRate extends StatelessWidget {
+  const HeartRate({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(35),
+          border: Border.all(color: Colors.grey, width: 0.5)),
+      height: 200,
+      width: 250,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 30, top: 10),
+                  child: Icon(
+                    Icons.heart_broken_outlined,
+                    color: Colors.white,
+                    size: 25,
+                  ),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
+                        'Heart Rate',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w100,
+                            fontSize: 20),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
+                        '120 bpm',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: Icon(
+              Icons.waves_sharp,
+              color: Colors.blue,
+              size: 60,
+            ),
+          )
+        ],
+      ),
+    ).blurred(borderRadius: BorderRadius.circular(25), blur: 1.1);
   }
 }
