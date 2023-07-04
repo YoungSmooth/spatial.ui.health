@@ -41,7 +41,7 @@ class _DesktopScreenState extends State<DesktopScreen> {
                     child: Container(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        mainAxisSize: MainAxisSize.max,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           MainTransparentTop(),
                           Spacer(),

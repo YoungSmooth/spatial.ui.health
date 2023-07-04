@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:blur/blur.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class MainTransparentTop extends StatelessWidget {
   const MainTransparentTop({super.key});
@@ -28,13 +29,14 @@ class MainTransparent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 450,
-      width: double.infinity,
+      // width: double.infinity,
       decoration: BoxDecoration(
           border: Border.all(width: 1, color: Colors.grey.shade700),
           borderRadius: BorderRadius.circular(30)),
       child: ClipRRect(
-          borderRadius: BorderRadius.circular(30),
-          child: TransparentBackgroundMain()),
+        borderRadius: BorderRadius.circular(30),
+        child: TransparentBackgroundMain(),
+      ),
     );
   }
 }
@@ -56,8 +58,9 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
       ),
       child: Row(
         children: [
-          Expanded(
-            flex: 2,
+          Flexible(
+            fit: FlexFit.loose,
+            flex: 1,
             child: Column(
               children: [
                 // top view, icon, Diagnose, my Heart
@@ -83,25 +86,26 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                           backgroundColor: Colors.transparent,
                         ),
                         Padding(
-                            padding: const EdgeInsets.only(left: 5),
-                            child: CurvedContainer(
-                              Row(
-                                children: [
-                                  CircleAvatar(
-                                    radius: 4,
-                                    backgroundColor: Colors.blue,
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    'My Heart',
-                                    style: TextStyle(
-                                        fontSize: 10, color: Colors.white),
-                                  ),
-                                ],
-                              ),
-                            )),
+                          padding: const EdgeInsets.only(left: 5),
+                          child: CurvedContainer(
+                            Row(
+                              children: [
+                                CircleAvatar(
+                                  radius: 4,
+                                  backgroundColor: Colors.blue,
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  'My Heart',
+                                  style: TextStyle(
+                                      fontSize: 10, color: Colors.white),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -131,7 +135,19 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                   // fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
-                              ),
+                              )
+                                  .animate(
+                                    onComplete: (controller) {
+                                      controller.reverse();
+                                      controller.repeat();
+                                    },
+                                  )
+                                  .flipV(
+                                    duration: Duration(seconds: 5),
+                                  )
+                                  .flipH(
+                                    duration: Duration(seconds: 10),
+                                  ),
                               Text(
                                 'Conditions',
                                 textAlign: TextAlign.start,
@@ -140,7 +156,7 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                   // fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
-                              ),
+                              )
                             ],
                           ),
                         ),
@@ -190,6 +206,22 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                   padding: const EdgeInsets.only(left: 10),
                                   child: Image.asset(
                                     'assets/heart.png',
+                                  ).animate(
+                                    autoPlay: true,
+                                    onComplete: (controller) {
+                                      controller.repeat(
+                                        reverse: true,
+                                        period: Duration(seconds: 1),
+                                      );
+                                    },
+                                    effects: [
+                                      ScaleEffect(
+                                        duration: Duration(seconds: 1),
+                                        delay: Duration(seconds: 0),
+                                        begin: Offset(0.8, 0.9),
+                                        end: Offset(1.0, 1.0),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
@@ -264,14 +296,128 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
               ],
             ),
           ),
-          Expanded(
-            flex: 2,
-            child: Image.network(
-                'https://www.pngmart.com/files/22/Elon-Musk-PNG.png'),
+          Flexible(
+            fit: FlexFit.loose,
+            flex: 1,
+            child: Column(
+              children: [
+                //search row
+                Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 100,
+                        color: Colors.green,
+                      ),
+                    )),
+                Expanded(
+                    flex: 6,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 300,
+                        color: Colors.white,
+                      ),
+                    )),
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    height: 120,
+                    color: Colors.red,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 5),
+                                  child: CircleAvatar(
+                                    radius: 3,
+                                    backgroundColor: Colors.blue,
+                                  ),
+                                ),
+                                Text(
+                                  'My Body Condition',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                ArrowContainer.defaultIcon(),
+                                ArrowContainer(
+                                  icon: Icons.arrow_back,
+                                  iconSize: 10,
+                                  iconColor: Colors.white,
+                                  backgroundColor: Colors.transparent,
+                                  borderColor: Colors.grey,
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
-    ).frosted(frostOpacity: 0.1, frostColor: Colors.grey, blur: 7.0);
+    )
+        // .frosted(frostOpacity: 0.1, frostColor: Colors.grey, blur: 7.0)
+        ;
+  }
+}
+
+class ArrowContainer extends StatelessWidget {
+  final IconData icon;
+  final Color iconColor;
+  final double iconSize;
+  final Color backgroundColor;
+  final Color borderColor;
+  const ArrowContainer.defaultIcon({super.key})
+      : icon = Icons.arrow_back,
+        borderColor = Colors.grey,
+        iconSize = 10,
+        backgroundColor = Colors.transparent,
+        iconColor = Colors.white;
+  const ArrowContainer({
+    super.key,
+    required this.icon,
+    required this.iconColor,
+    required this.iconSize,
+    required this.backgroundColor,
+    required this.borderColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          // shape: BoxShape.circle,
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(width: 0.7, color: borderColor),
+          color: backgroundColor),
+      child: Padding(
+        padding: const EdgeInsets.all(3.0),
+        child: Icon(
+          icon,
+          color: iconColor,
+          size: iconSize,
+        ),
+      ),
+    );
   }
 }
 
@@ -316,7 +462,7 @@ class CircleWithBorder extends StatelessWidget {
       child: Stack(children: [
         CircleAvatar(
           radius: double.maxFinite,
-          backgroundColor: Colors.grey.withOpacity(0.1),
+          backgroundColor: Colors.grey.withOpacity(0.3),
           child: Center(
               child: Padding(
             padding: const EdgeInsets.all(15.0),
@@ -336,8 +482,9 @@ class CircleWithBorder1 extends StatefulWidget {
 }
 
 class _CircleWithBorder1State extends State<CircleWithBorder1> {
-  Color borderColor = Colors.grey.shade900;
-  Color mainColor = Colors.blue.shade400.withOpacity(0.1);
+  Color borderColor = Colors.grey.shade800;
+  Color mainColor = Colors.grey.withOpacity(0.3);
+  // Colors.white.withOpacity(0.5);
 
   @override
   Widget build(BuildContext context) {
@@ -352,7 +499,10 @@ class _CircleWithBorder1State extends State<CircleWithBorder1> {
       child: CircleAvatar(
         radius: double.maxFinite,
         backgroundColor: mainColor,
-      ),
+      ).blurred(
+          borderRadius: BorderRadius.circular(80),
+          blur: 0.01,
+          blurColor: Colors.white70),
     );
   }
 }
@@ -386,7 +536,28 @@ class TinyCircleDotsForHeart extends StatelessWidget {
                 ),
               ),
             ),
-          ).blurred(borderRadius: BorderRadius.circular(25), blur: 0.1),
+          ).blurred(borderRadius: BorderRadius.circular(25), blur: 0.1).animate(
+            autoPlay: true,
+            onComplete: (controller) {
+              controller.repeat(
+                reverse: true,
+                period: Duration(seconds: 5),
+              );
+            },
+            effects: [
+              FadeEffect(
+                duration: Duration(seconds: 3),
+              ),
+              SlideEffect(
+                duration: Duration(seconds: 5),
+                delay: Duration(seconds: 3),
+              ),
+              RotateEffect(
+                duration: Duration(seconds: 5),
+                delay: Duration(seconds: 5),
+              ),
+            ],
+          ),
         ]),
       ),
     );
@@ -547,8 +718,8 @@ class HeartRate extends StatelessWidget {
                         'Heart Rate',
                         style: TextStyle(
                             color: Colors.white,
-                            fontWeight: FontWeight.w100,
-                            fontSize: 20),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 22),
                       ),
                     ),
                     Padding(
