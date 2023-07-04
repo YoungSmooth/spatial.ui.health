@@ -1,4 +1,3 @@
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter/material.dart';
 import 'package:blur/blur.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -317,15 +316,54 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                             color: Colors.amber,
                             child: Column(
                               children: [
-                                Neumorphic(
-                                  child: Container(
-                                    color: Colors.grey,
-                                    child: Row(
-                                      children: [
-                                        Text('Search...'),
-                                      ],
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(top: 10),
+                                        child: Container(
+                                            decoration: BoxDecoration(
+                                              boxShadow: <BoxShadow>[],
+                                              color: Colors.grey,
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                            ),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            left: 10),
+                                                    child: Text(
+                                                      'Search...',
+                                                      style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 12,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            right: 10),
+                                                    child: Icon(
+                                                      Icons.search,
+                                                      color: Colors.white,
+                                                      size: 13,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            )),
+                                      ),
                                     ),
-                                  ),
+                                  ],
                                 ),
                               ],
                             ),
