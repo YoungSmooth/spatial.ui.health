@@ -68,7 +68,7 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                   flex: 2,
                   child: Padding(
                     padding:
-                        const EdgeInsets.only(left: 30, top: 30, bottom: 30),
+                        const EdgeInsets.only(left: 25, top: 0, bottom: 30),
                     child: Row(
                       children: [
                         Padding(
@@ -305,7 +305,7 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                 Expanded(
                     flex: 1,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.only(top: 10, right: 20),
                       child: Container(
                         height: 100,
                         color: Colors.green,
@@ -353,13 +353,21 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                             ),
                             Row(
                               children: [
-                                ArrowContainer.defaultIcon(),
-                                ArrowContainer(
-                                  icon: Icons.arrow_back,
-                                  iconSize: 10,
-                                  iconColor: Colors.white,
-                                  backgroundColor: Colors.transparent,
-                                  borderColor: Colors.grey,
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 3),
+                                  child: ArrowContainer.defaultIcon(),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 20),
+                                  child: ArrowContainer(
+                                    padding: EdgeInsets.all(3.0),
+                                    icon: Icons.arrow_forward,
+                                    iconSize: 10,
+                                    iconColor: Colors.white,
+                                    backgroundColor: Colors.transparent,
+                                    borderColor: Colors.grey,
+                                  ),
                                 )
                               ],
                             )
@@ -386,19 +394,22 @@ class ArrowContainer extends StatelessWidget {
   final double iconSize;
   final Color backgroundColor;
   final Color borderColor;
-  const ArrowContainer.defaultIcon({super.key})
+  final EdgeInsets padding;
+  ArrowContainer.defaultIcon({super.key})
       : icon = Icons.arrow_back,
         borderColor = Colors.grey,
         iconSize = 10,
         backgroundColor = Colors.transparent,
-        iconColor = Colors.white;
-  const ArrowContainer({
+        iconColor = Colors.white,
+        padding = EdgeInsets.all(3.0);
+  ArrowContainer({
     super.key,
     required this.icon,
     required this.iconColor,
     required this.iconSize,
     required this.backgroundColor,
     required this.borderColor,
+    required this.padding,
   });
 
   @override
@@ -410,7 +421,7 @@ class ArrowContainer extends StatelessWidget {
           border: Border.all(width: 0.7, color: borderColor),
           color: backgroundColor),
       child: Padding(
-        padding: const EdgeInsets.all(3.0),
+        padding: padding,
         child: Icon(
           icon,
           color: iconColor,
