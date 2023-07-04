@@ -1,3 +1,4 @@
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter/material.dart';
 import 'package:blur/blur.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -91,7 +92,7 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                             Row(
                               children: [
                                 CircleAvatar(
-                                  radius: 4,
+                                  radius: 3,
                                   backgroundColor: Colors.blue,
                                 ),
                                 SizedBox(
@@ -302,28 +303,54 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
             child: Column(
               children: [
                 //search row
+
                 Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 10, right: 20),
-                      child: Container(
-                        height: 100,
-                        color: Colors.green,
-                      ),
-                    )),
-                Expanded(
-                    flex: 6,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 300,
-                        color: Colors.white,
-                      ),
-                    )),
-                Expanded(
-                  flex: 4,
+                  flex: 7,
                   child: Container(
-                    height: 120,
+                    color: Colors.white,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          flex: 7,
+                          child: Container(
+                            color: Colors.amber,
+                            child: Column(
+                              children: [
+                                Neumorphic(
+                                  child: Container(
+                                    color: Colors.grey,
+                                    child: Row(
+                                      children: [
+                                        Text('Search...'),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Container(
+                            color: Colors.blue,
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Container(
                     color: Colors.red,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
