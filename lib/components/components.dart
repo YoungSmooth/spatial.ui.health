@@ -311,85 +311,107 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
-                          flex: 7,
+                          flex: 65,
                           child: Container(
                             // color: Colors.amber,
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Expanded(
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(top: 10),
-                                        child: Container(
-                                            decoration: BoxDecoration(
-                                              boxShadow: <BoxShadow>[
-                                                BoxShadow(
-                                                  color: Colors.black,
-                                                  offset: Offset(0, 3),
-                                                  blurRadius: 0.001,
-                                                  spreadRadius: 0.001,
-                                                ),
-                                                BoxShadow(
-                                                  color: Colors.grey.shade800,
-                                                  offset: Offset(0, 3),
-                                                  blurRadius: 0.01,
-                                                  spreadRadius: 0.01,
-                                                ),
-                                              ],
-                                              color: Colors.black45,
-                                              borderRadius:
-                                                  BorderRadius.circular(20),
-                                            ),
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            left: 10),
-                                                    child: Text(
-                                                      'Search...',
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 12,
-                                                      ),
-                                                    ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(top: 10),
+                                          child: Container(
+                                              decoration: BoxDecoration(
+                                                boxShadow: <BoxShadow>[
+                                                  BoxShadow(
+                                                    color: Colors.black,
+                                                    offset: Offset(0, 3),
+                                                    blurRadius: 0.001,
+                                                    spreadRadius: 0.001,
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            right: 10),
-                                                    child: Icon(
-                                                      Icons.search,
-                                                      color: Colors.white,
-                                                      size: 13,
-                                                    ),
+                                                  BoxShadow(
+                                                    color: Colors.grey.shade800,
+                                                    offset: Offset(0, 3),
+                                                    blurRadius: 0.01,
+                                                    spreadRadius: 0.01,
                                                   ),
                                                 ],
+                                                color: Colors.black45,
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
                                               ),
-                                            )),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 10),
+                                                      child: Text(
+                                                        'Search...',
+                                                        style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 12,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              right: 10),
+                                                      child: Icon(
+                                                        Icons.search,
+                                                        color: Colors.white,
+                                                        size: 13,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              )),
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                         Expanded(
-                          flex: 3,
+                          flex: 35,
                           child: Container(
                             color: Colors.blue,
                             child: Column(
                               children: [
-                                Row(
-                                  children: [],
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 10),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        height: 35,
+                                        width: 35,
+                                        decoration: BoxDecoration(
+                                            border: Border.all(
+                                                width: 0.5,
+                                                color: Colors.grey.shade400),
+                                            shape: BoxShape.circle),
+                                        child: Icon(
+                                          Icons.phone,
+                                          color: Colors.white,
+                                          size: 13,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
@@ -666,31 +688,32 @@ class ElevatedButtonStyled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateColor.resolveWith(
-            (states) {
-              // Set the desired border color and width based on the button's state
-              if (states.contains(MaterialState.pressed)) {
-                return backgroundColor;
-              }
+      style: ButtonStyle(
+        backgroundColor: MaterialStateColor.resolveWith(
+          (states) {
+            // Set the desired border color and width based on the button's state
+            if (states.contains(MaterialState.pressed)) {
               return backgroundColor;
-            },
-          ),
-          side: MaterialStateBorderSide.resolveWith(
-            (states) {
-              // Set the desired border color and width based on the button's state
-              if (states.contains(MaterialState.pressed)) {
-                return BorderSide(color: Colors.white, width: 0.5);
-              }
-              return BorderSide(color: Colors.grey, width: 0.5);
-            },
-          ),
+            }
+            return backgroundColor;
+          },
         ),
-        onPressed: null,
-        child: Text(
-          name,
-          style: TextStyle(color: textColor, fontSize: 10),
-        ));
+        side: MaterialStateBorderSide.resolveWith(
+          (states) {
+            // Set the desired border color and width based on the button's state
+            if (states.contains(MaterialState.pressed)) {
+              return BorderSide(color: Colors.white, width: 0.5);
+            }
+            return BorderSide(color: Colors.grey, width: 0.5);
+          },
+        ),
+      ),
+      onPressed: null,
+      child: Text(
+        name,
+        style: TextStyle(color: textColor, fontSize: 10),
+      ),
+    );
   }
 }
 
