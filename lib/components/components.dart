@@ -306,14 +306,14 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                 Expanded(
                   flex: 7,
                   child: Container(
-                    color: Colors.white,
+                    // color: Colors.white,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
                           flex: 7,
                           child: Container(
-                            color: Colors.amber,
+                            // color: Colors.amber,
                             child: Column(
                               children: [
                                 Row(
@@ -323,8 +323,21 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                         padding: const EdgeInsets.only(top: 10),
                                         child: Container(
                                             decoration: BoxDecoration(
-                                              boxShadow: <BoxShadow>[],
-                                              color: Colors.grey,
+                                              boxShadow: <BoxShadow>[
+                                                BoxShadow(
+                                                  color: Colors.black,
+                                                  offset: Offset(0, 3),
+                                                  blurRadius: 0.001,
+                                                  spreadRadius: 0.001,
+                                                ),
+                                                BoxShadow(
+                                                  color: Colors.grey.shade800,
+                                                  offset: Offset(0, 3),
+                                                  blurRadius: 0.01,
+                                                  spreadRadius: 0.01,
+                                                ),
+                                              ],
+                                              color: Colors.black45,
                                               borderRadius:
                                                   BorderRadius.circular(20),
                                             ),
