@@ -28,8 +28,7 @@ class MainTransparent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 450,
-      // width: double.infinity,
+      height: 470,
       decoration: BoxDecoration(
           border: Border.all(width: 1, color: Colors.grey.shade700),
           borderRadius: BorderRadius.circular(30)),
@@ -312,10 +311,11 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                       children: [
                         Expanded(
                           flex: 65,
-                          child: Container(
-                            // color: Colors.amber,
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 20),
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.only(right: 20, bottom: 20),
+                            child: Container(
+                              color: Colors.amber,
                               child: Column(
                                 children: [
                                   Row(
@@ -388,32 +388,36 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                         ),
                         Expanded(
                           flex: 35,
-                          child: Container(
-                            color: Colors.blue,
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 10),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        height: 35,
-                                        width: 35,
-                                        decoration: BoxDecoration(
-                                            border: Border.all(
-                                                width: 0.5,
-                                                color: Colors.grey.shade400),
-                                            shape: BoxShape.circle),
-                                        child: Icon(
-                                          Icons.phone,
-                                          color: Colors.white,
-                                          size: 13,
-                                        ),
-                                      )
-                                    ],
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.only(right: 20, bottom: 20),
+                            child: Container(
+                              color: Colors.blue,
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 10),
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          height: 35,
+                                          width: 35,
+                                          decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  width: 0.5,
+                                                  color: Colors.grey.shade400),
+                                              shape: BoxShape.circle),
+                                          child: Icon(
+                                            Icons.phone,
+                                            color: Colors.white,
+                                            size: 13,
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
