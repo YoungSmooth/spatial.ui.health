@@ -392,30 +392,109 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                             padding:
                                 const EdgeInsets.only(right: 20, bottom: 20),
                             child: Container(
-                              color: Colors.blue,
+                              // color: Colors.blue,
                               child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.only(top: 10),
                                     child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Container(
                                           height: 35,
                                           width: 35,
                                           decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  width: 0.5,
-                                                  color: Colors.grey.shade400),
-                                              shape: BoxShape.circle),
+                                            color: Colors.blue,
+                                            border: Border.all(
+                                                width: 0.5, color: Colors.blue),
+                                            shape: BoxShape.circle,
+                                          ),
                                           child: Icon(
                                             Icons.phone,
                                             color: Colors.white,
                                             size: 13,
                                           ),
-                                        )
+                                        ),
+                                        Container(
+                                          height: 35,
+                                          width: 35,
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                                width: 0.5,
+                                                color: Colors.grey.shade400),
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Icon(
+                                            Icons.notifications,
+                                            color: Colors.white,
+                                            size: 13,
+                                          ),
+                                        ),
+                                        CircleAvatar(
+                                          backgroundImage: NetworkImage(
+                                            'https://static01.nyt.com/images/2023/07/07/multimedia/07THREADS-LOGO-zmkv/07THREADS-LOGO-zmkv-articleLarge.jpg?quality=75&auto=webp&disable=upscale',
+                                          ),
+                                          radius: 17,
+                                        ),
                                       ],
                                     ),
                                   ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 5),
+                                            child: CircleAvatar(
+                                              backgroundColor: Colors.blue,
+                                              radius: 3,
+                                            ),
+                                          ),
+                                          Text(
+                                            'My Schedule',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 5),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              border: Border.all(
+                                                  color: Colors.grey,
+                                                  width: 0.5)),
+                                          child: Row(
+                                            children: [
+                                              Icon(
+                                                Icons.chair,
+                                                size: 15,
+                                                color: Colors.white,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  Text('Next Checkup')
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )
                                 ],
                               ),
                             ),
