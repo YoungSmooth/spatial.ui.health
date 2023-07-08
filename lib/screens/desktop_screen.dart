@@ -29,7 +29,7 @@ class _DesktopScreenState extends State<DesktopScreen> {
               flex: 1,
             ),
             Expanded(
-              flex: 8,
+              flex: 10,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -37,7 +37,7 @@ class _DesktopScreenState extends State<DesktopScreen> {
                     flex: 1,
                   ),
                   Expanded(
-                    flex: 8,
+                    flex: 7,
                     child: Container(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

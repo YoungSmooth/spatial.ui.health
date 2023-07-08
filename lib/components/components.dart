@@ -28,7 +28,7 @@ class MainTransparent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 470,
+      height: 500,
       decoration: BoxDecoration(
           border: Border.all(width: 1, color: Colors.grey.shade700),
           borderRadius: BorderRadius.circular(30)),
@@ -164,8 +164,9 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                 Expanded(
                   flex: 6,
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 30),
+                    padding: const EdgeInsets.only(bottom: 20),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 20),
@@ -185,107 +186,110 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                             ],
                           ),
                         ),
-                        Center(
-                          child: Stack(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: SizedBox(
-                                  width: 220,
-                                  height: 220,
+                        Padding(
+                          padding: const EdgeInsets.only(left: 30),
+                          child: Center(
+                            child: Stack(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: SizedBox(
+                                    width: 220,
+                                    height: 220,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 30, left: 30),
+                                      child: CircleWithBorder(),
+                                    ),
+                                  ),
+                                ),
+                                Positioned.fill(
                                   child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 30, left: 30),
-                                    child: CircleWithBorder(),
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: Image.asset(
+                                      'assets/heart.png',
+                                    ).animate(
+                                      autoPlay: true,
+                                      onComplete: (controller) {
+                                        controller.repeat(
+                                          reverse: true,
+                                          period: Duration(seconds: 1),
+                                        );
+                                      },
+                                      effects: [
+                                        ScaleEffect(
+                                          duration: Duration(seconds: 1),
+                                          delay: Duration(seconds: 0),
+                                          begin: Offset(0.8, 0.9),
+                                          end: Offset(1.0, 1.0),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Positioned.fill(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 10),
-                                  child: Image.asset(
-                                    'assets/heart.png',
-                                  ).animate(
-                                    autoPlay: true,
-                                    onComplete: (controller) {
-                                      controller.repeat(
-                                        reverse: true,
-                                        period: Duration(seconds: 1),
-                                      );
-                                    },
-                                    effects: [
-                                      ScaleEffect(
-                                        duration: Duration(seconds: 1),
-                                        delay: Duration(seconds: 0),
-                                        begin: Offset(0.8, 0.9),
-                                        end: Offset(1.0, 1.0),
-                                      ),
-                                    ],
+                                Positioned.fill(
+                                  left: 110,
+                                  bottom: 110,
+                                  right: 100,
+                                  top: 110,
+                                  child: FittedBox(
+                                    child: SizedBox(
+                                      height: 30,
+                                      width: 30,
+                                      child: TinyCircleDotsForHeart(),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Positioned.fill(
-                                left: 110,
-                                bottom: 110,
-                                right: 100,
-                                top: 110,
-                                child: FittedBox(
-                                  child: SizedBox(
-                                    height: 30,
-                                    width: 30,
-                                    child: TinyCircleDotsForHeart(),
+                                Positioned.fill(
+                                  left: 110,
+                                  bottom: 185,
+                                  right: 60,
+                                  top: 35,
+                                  child: FittedBox(
+                                    child: SizedBox(
+                                      height: 30,
+                                      width: 30,
+                                      child: TinyCircleDotsForHeart(),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Positioned.fill(
-                                left: 110,
-                                bottom: 185,
-                                right: 60,
-                                top: 35,
-                                child: FittedBox(
-                                  child: SizedBox(
-                                    height: 30,
-                                    width: 30,
-                                    child: TinyCircleDotsForHeart(),
+                                Positioned.fill(
+                                  left: 140,
+                                  bottom: 55,
+                                  right: 60,
+                                  top: 165,
+                                  child: FittedBox(
+                                    child: SizedBox(
+                                      height: 30,
+                                      width: 30,
+                                      child: TinyCircleDotsForHeart(),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Positioned.fill(
-                                left: 140,
-                                bottom: 55,
-                                right: 60,
-                                top: 165,
-                                child: FittedBox(
-                                  child: SizedBox(
-                                    height: 30,
-                                    width: 30,
-                                    child: TinyCircleDotsForHeart(),
+                                Positioned.fill(
+                                  left: 70,
+                                  bottom: 95,
+                                  right: 140,
+                                  top: 125,
+                                  child: FittedBox(
+                                    child: SizedBox(
+                                      height: 30,
+                                      width: 30,
+                                      child: TinyCircleDotsForHeart(),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Positioned.fill(
-                                left: 70,
-                                bottom: 95,
-                                right: 140,
-                                top: 125,
-                                child: FittedBox(
-                                  child: SizedBox(
-                                    height: 30,
-                                    width: 30,
-                                    child: TinyCircleDotsForHeart(),
+                                Positioned.fill(
+                                  left: 10,
+                                  bottom: 20,
+                                  right: 70,
+                                  top: 150,
+                                  child: FittedBox(
+                                    child: HeartRate(),
                                   ),
                                 ),
-                              ),
-                              Positioned.fill(
-                                left: 10,
-                                bottom: 20,
-                                right: 70,
-                                top: 150,
-                                child: FittedBox(
-                                  child: HeartRate(),
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -315,7 +319,8 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                             padding:
                                 const EdgeInsets.only(right: 20, bottom: 20),
                             child: Container(
-                              color: Colors.amber,
+                              // color: Colors.amber,
+                              // search column
                               child: Column(
                                 children: [
                                   Row(
@@ -386,6 +391,8 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                             ),
                           ),
                         ),
+
+                        //blue column
                         Expanded(
                           flex: 35,
                           child: Padding(
@@ -479,14 +486,33 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                                   width: 0.5)),
                                           child: Row(
                                             children: [
-                                              Icon(
-                                                Icons.chair,
-                                                size: 15,
-                                                color: Colors.white,
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(15.0),
+                                                child: Icon(
+                                                  Icons.chair,
+                                                  size: 15,
+                                                  color: Colors.white,
+                                                ),
                                               ),
                                               Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
                                                 children: [
-                                                  Text('Next Checkup')
+                                                  Text(
+                                                    'Next Checkup',
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 9),
+                                                  ),
+                                                  Text(
+                                                    'Mon, 10 Jul',
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 9),
+                                                  ),
                                                 ],
                                               )
                                             ],
@@ -506,57 +532,60 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                 ),
                 Expanded(
                   flex: 3,
-                  child: Container(
-                    color: Colors.red,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 5),
-                                  child: CircleAvatar(
-                                    radius: 3,
-                                    backgroundColor: Colors.blue,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: Container(
+                      color: Colors.red,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 5),
+                                    child: CircleAvatar(
+                                      radius: 3,
+                                      backgroundColor: Colors.blue,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  'My Body Condition',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 3),
-                                  child: ArrowContainer.defaultIcon(),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 20),
-                                  child: ArrowContainer(
-                                    padding: EdgeInsets.all(3.0),
-                                    icon: Icons.arrow_forward,
-                                    iconSize: 10,
-                                    iconColor: Colors.white,
-                                    backgroundColor: Colors.transparent,
-                                    borderColor: Colors.grey,
+                                  Text(
+                                    'My Body Condition',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w400),
                                   ),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ],
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 3),
+                                    child: ArrowContainer.defaultIcon(),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 20),
+                                    child: ArrowContainer(
+                                      padding: EdgeInsets.all(3.0),
+                                      icon: Icons.arrow_forward,
+                                      iconSize: 10,
+                                      iconColor: Colors.white,
+                                      backgroundColor: Colors.transparent,
+                                      borderColor: Colors.grey,
+                                    ),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
