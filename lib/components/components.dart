@@ -484,43 +484,116 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                               border: Border.all(
                                                   color: Colors.grey,
                                                   width: 0.5)),
-                                          child: Row(
-                                            children: [
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(15.0),
-                                                child: Icon(
-                                                  Icons.chair,
-                                                  size: 15,
-                                                  color: Colors.white,
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(3.0),
+                                            child: Column(
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              15.0),
+                                                      child: Icon(
+                                                        Icons.chair,
+                                                        size: 15,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                    Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          'Next Checkup',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 9),
+                                                        ),
+                                                        Text(
+                                                          'Mon, 10 Jul',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 9),
+                                                        ),
+                                                      ],
+                                                    )
+                                                  ],
                                                 ),
-                                              ),
-                                              Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    'Next Checkup',
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 9),
+                                                SizedBox(
+                                                  height: 3,
+                                                ),
+                                                Container(
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20),
+                                                    color: Colors.grey.shade800,
                                                   ),
-                                                  Text(
-                                                    'Mon, 10 Jul',
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 9),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      ArrowContainer(
+                                                        padding:
+                                                            EdgeInsets.all(5.0),
+                                                        icon: Icons.arrow_back,
+                                                        iconSize: 10,
+                                                        iconColor: Colors.white,
+                                                        backgroundColor:
+                                                            Colors.grey,
+                                                        borderColor:
+                                                            Colors.grey,
+                                                      ),
+                                                      Text(
+                                                        '8-Jul-23',
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontSize: 9),
+                                                      ),
+                                                      ArrowContainer(
+                                                        padding:
+                                                            EdgeInsets.all(5.0),
+                                                        icon:
+                                                            Icons.arrow_forward,
+                                                        iconSize: 10,
+                                                        iconColor: Colors.white,
+                                                        backgroundColor:
+                                                            Colors.grey,
+                                                        borderColor:
+                                                            Colors.grey,
+                                                      ),
+                                                    ],
                                                   ),
-                                                ],
-                                              )
-                                            ],
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Doctors.use(),
+                                                SizedBox(
+                                                  height: 3,
+                                                ),
+                                                Doctors('Dr Samuel N',
+                                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7sbYZ7Xr23FpWwq4fgHdZ-EiJKGiVRz-jYQ&usqp=CAU'),
+                                                SizedBox(
+                                                  height: 3,
+                                                ),
+                                                Doctors('Dr James O',
+                                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmj2aYKfhFJMGI1dsIuz8eL5Ql3xKzLQbP2A&usqp=CAU'),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ],
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
@@ -597,6 +670,55 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
     )
         // .frosted(frostOpacity: 0.1, frostColor: Colors.grey, blur: 7.0)
         ;
+  }
+}
+
+class Doctors extends StatelessWidget {
+  Doctors(
+    this.doctorName,
+    this.profileLink, {
+    super.key,
+  });
+  Doctors.use()
+      : profileLink =
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwqtCSynDQRoljeLFbQ5qb4z84QHY6Ijfm1w&usqp=CAU',
+        doctorName = 'Dr Aproko N';
+
+  final String profileLink;
+  final String doctorName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: Colors.grey.shade800,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            height: 30,
+            width: 30,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(9),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(9),
+              child: Image.network(profileLink),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: Text(
+              doctorName,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(color: Colors.white, fontSize: 9),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
