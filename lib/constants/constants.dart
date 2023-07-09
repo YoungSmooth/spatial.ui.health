@@ -10,3 +10,5 @@ Gradient kBlue = LinearGradient(
     Color.fromARGB(255, 57, 69, 235)
   ],
 );
+
+Color KGrey = Colors.grey.shade800;

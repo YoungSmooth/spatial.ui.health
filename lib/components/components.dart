@@ -88,21 +88,8 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                         Padding(
                           padding: const EdgeInsets.only(left: 5),
                           child: CurvedContainer(
-                            Row(
-                              children: [
-                                CircleAvatar(
-                                  radius: 3,
-                                  backgroundColor: Colors.blue,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  'My Heart',
-                                  style: TextStyle(
-                                      fontSize: 10, color: Colors.white),
-                                ),
-                              ],
+                            BlueIconAndText(
+                              text: 'My Heart',
                             ),
                           ),
                         ),
@@ -323,6 +310,8 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                               // color: Colors.amber,
                               // search column
                               child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     children: [
@@ -384,6 +373,76 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                                 ),
                                               )),
                                         ),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      BlueIconAndText(
+                                          text: 'My Heart Condition'),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 10),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            HeartConditionContainer(
+                                              firstIcon: Icons
+                                                  .wallet_membership_outlined,
+                                              secondIcon: Icons.label,
+                                              firstText: 'Blood Status',
+                                              firstText2: '118/70',
+                                              secondText: '116',
+                                              secondText2: 'mm',
+                                              color: KGrey,
+                                            ),
+                                            SizedBox(
+                                              width: 5,
+                                            ),
+                                            HeartConditionContainer(
+                                              firstIcon: Icons
+                                                  .wallet_membership_outlined,
+                                              secondIcon: Icons.label,
+                                              firstText: 'Blood Status',
+                                              firstText2: '118/70',
+                                              secondText: '116',
+                                              secondText2: 'mm',
+                                              color: KGrey,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          HeartConditionContainer(
+                                            firstIcon: Icons
+                                                .wallet_membership_outlined,
+                                            secondIcon: Icons.label,
+                                            firstText: 'Blood Status',
+                                            firstText2: '118/70',
+                                            secondText: '116',
+                                            secondText2: 'mm',
+                                            color: KGrey,
+                                          ),
+                                          SizedBox(
+                                            width: 5,
+                                          ),
+                                          HeartConditionContainer(
+                                            firstIcon: Icons
+                                                .wallet_membership_outlined,
+                                            secondIcon: Icons.label,
+                                            firstText: 'Blood Status',
+                                            firstText2: '118/70',
+                                            secondText: '116',
+                                            secondText2: 'mm',
+                                            color: KGrey,
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),
@@ -457,27 +516,11 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Row(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 5),
-                                            child: CircleAvatar(
-                                              backgroundColor: Colors.blue,
-                                              radius: 3,
-                                            ),
-                                          ),
-                                          Text(
-                                            'My Schedule',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 10,
-                                                fontWeight: FontWeight.w400),
-                                          ),
-                                        ],
+                                      BlueIconAndText(
+                                        text: 'My Schedule',
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.only(top: 5),
+                                        padding: const EdgeInsets.only(top: 10),
                                         child: Container(
                                           decoration: BoxDecoration(
                                               borderRadius:
@@ -489,46 +532,13 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                             padding: const EdgeInsets.all(3.0),
                                             child: Column(
                                               children: [
-                                                Row(
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              15.0),
-                                                      child: Icon(
-                                                        Icons.chair,
-                                                        size: 15,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                    Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          'Next Checkup',
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: 9),
-                                                        ),
-                                                        Text(
-                                                          'Mon, 10 Jul',
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: 9),
-                                                        ),
-                                                      ],
-                                                    )
-                                                  ],
+                                                IconAndColumn(
+                                                  icon: Icons.chair,
+                                                  text: 'Next Checkup',
+                                                  text2: 'Sun, 09 Jul',
                                                 ),
                                                 SizedBox(
-                                                  height: 10,
+                                                  height: 15,
                                                 ),
                                                 Container(
                                                   decoration: BoxDecoration(
@@ -660,24 +670,8 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 5),
-                                    child: CircleAvatar(
-                                      radius: 3,
-                                      backgroundColor: Colors.blue,
-                                    ),
-                                  ),
-                                  Text(
-                                    'My Body Condition',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                ],
+                              BlueIconAndText(
+                                text: 'My Body Condition',
                               ),
                               Row(
                                 children: [
@@ -714,6 +708,151 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
     )
         // .frosted(frostOpacity: 0.1, frostColor: Colors.grey, blur: 7.0)
         ;
+  }
+}
+
+class HeartConditionContainer extends StatelessWidget {
+  const HeartConditionContainer({
+    super.key,
+    required this.firstIcon,
+    required this.secondIcon,
+    required this.firstText,
+    required this.firstText2,
+    required this.secondText,
+    required this.secondText2,
+    required this.color,
+  });
+  final IconData firstIcon;
+  final IconData secondIcon;
+  final String firstText;
+  final String firstText2;
+  final String secondText;
+  final String secondText2;
+  final Color color;
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colors.grey, width: 0.5)),
+        child: Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: Column(
+            children: [
+              IconAndColumn(
+                icon: firstIcon,
+                text: firstText,
+                text2: firstText2,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Icon(
+                    secondIcon,
+                    color: Colors.white,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: color, borderRadius: BorderRadius.circular(10)),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 10, right: 10, top: 20, bottom: 20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            secondText,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 8,
+                                color: Colors.white),
+                          ),
+                          Text(
+                            secondText2,
+                            style: TextStyle(fontSize: 7, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class IconAndColumn extends StatelessWidget {
+  const IconAndColumn({
+    super.key,
+    required this.icon,
+    required this.text,
+    required this.text2,
+  });
+  final IconData icon;
+  final String text;
+  final String text2;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Icon(
+            icon,
+            size: 15,
+            color: Colors.white,
+          ),
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              text,
+              style: TextStyle(color: Colors.white, fontSize: 9),
+            ),
+            Text(
+              text2,
+              style: TextStyle(color: Colors.white, fontSize: 9),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class BlueIconAndText extends StatelessWidget {
+  const BlueIconAndText({
+    super.key,
+    required this.text,
+  });
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5),
+          child: CircleAvatar(
+            backgroundColor: Colors.blue,
+            radius: 3,
+          ),
+        ),
+        Text(
+          text,
+          style: TextStyle(
+              color: Colors.white, fontSize: 10, fontWeight: FontWeight.w400),
+        ),
+      ],
+    );
   }
 }
 
