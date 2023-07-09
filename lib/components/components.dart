@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:blur/blur.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:spatial_ui_health/constants/constants.dart';
 
 class MainTransparentTop extends StatelessWidget {
   const MainTransparentTop({super.key});
@@ -414,7 +415,7 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                           height: 35,
                                           width: 35,
                                           decoration: BoxDecoration(
-                                            color: Colors.blue,
+                                            gradient: kBlue,
                                             border: Border.all(
                                                 width: 0.5, color: Colors.blue),
                                             shape: BoxShape.circle,
@@ -527,7 +528,7 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                                   ],
                                                 ),
                                                 SizedBox(
-                                                  height: 3,
+                                                  height: 10,
                                                 ),
                                                 Container(
                                                   decoration: BoxDecoration(
@@ -587,6 +588,49 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                                 ),
                                                 Doctors('Dr James O',
                                                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmj2aYKfhFJMGI1dsIuz8eL5Ql3xKzLQbP2A&usqp=CAU'),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Container(
+                                                  height: 25,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20),
+                                                      gradient: kBlue),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .symmetric(
+                                                                horizontal: 10),
+                                                        child: Text(
+                                                          'Consult Now',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 9),
+                                                        ),
+                                                      ),
+                                                      ArrowContainer(
+                                                        padding:
+                                                            EdgeInsets.all(5.0),
+                                                        icon:
+                                                            Icons.arrow_forward,
+                                                        iconSize: 10,
+                                                        iconColor: Colors.white,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        borderColor:
+                                                            Colors.transparent,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
                                               ],
                                             ),
                                           ),
@@ -682,7 +726,7 @@ class Doctors extends StatelessWidget {
   Doctors.use()
       : profileLink =
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwqtCSynDQRoljeLFbQ5qb4z84QHY6Ijfm1w&usqp=CAU',
-        doctorName = 'Dr Aproko N';
+        doctorName = 'Dr Aproko Edwin';
 
   final String profileLink;
   final String doctorName;
@@ -708,12 +752,14 @@ class Doctors extends StatelessWidget {
               child: Image.network(profileLink),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Text(
-              doctorName,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(color: Colors.white, fontSize: 9),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Text(
+                doctorName,
+                overflow: TextOverflow.fade,
+                style: TextStyle(color: Colors.white, fontSize: 9),
+              ),
             ),
           ),
         ],
