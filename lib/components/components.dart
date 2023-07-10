@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:blur/blur.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:spatial_ui_health/constants/constants.dart';
+import 'package:spatial_ui_health/widgets/widgets.dart';
 
 class MainTransparentTop extends StatelessWidget {
   const MainTransparentTop({super.key});
@@ -50,6 +51,11 @@ class TransparentBackgroundMain extends StatefulWidget {
 }
 
 class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
+  final List _organs = [
+    {'Organ Link': 'assets/heart.png', 'Organ Name': 'Heart'},
+    {'Organ Link': 'assets/liver.png', 'Organ Name': 'Liver'},
+    {'Organ Link': 'assets/brain.png', 'Organ Name': 'Brain'},
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -695,6 +701,13 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                               )
                             ],
                           ),
+                        Expanded(
+                          
+                          child: ListView.builder(
+                            itemCount: _organs.length,
+                            itemBuilder: (context, index) {
+                          return OrgansWidget(organImageLink: _organs['Organ Link'],organName: _organs['Organ Name'],)
+                        },),),
                         ],
                       ),
                     ),
