@@ -51,7 +51,10 @@ class TransparentBackgroundMain extends StatefulWidget {
 }
 
 class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
-  final List _organs = [
+  final List<Map<String, dynamic>> _organs = [
+    {'Organ Link': 'assets/heart.png', 'Organ Name': 'Heart'},
+    {'Organ Link': 'assets/liver.png', 'Organ Name': 'Liver'},
+    {'Organ Link': 'assets/brain.png', 'Organ Name': 'Brain'},
     {'Organ Link': 'assets/heart.png', 'Organ Name': 'Heart'},
     {'Organ Link': 'assets/liver.png', 'Organ Name': 'Liver'},
     {'Organ Link': 'assets/brain.png', 'Organ Name': 'Brain'},
@@ -668,46 +671,63 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Container(
-                      color: Colors.red,
+                      // color: Colors.red,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              BlueIconAndText(
-                                text: 'My Body Condition',
-                              ),
-                              Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 3),
-                                    child: ArrowContainer.defaultIcon(),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 20),
-                                    child: ArrowContainer(
-                                      padding: EdgeInsets.all(3.0),
-                                      icon: Icons.arrow_forward,
-                                      iconSize: 10,
-                                      iconColor: Colors.white,
-                                      backgroundColor: Colors.transparent,
-                                      borderColor: Colors.grey,
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 5),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                BlueIconAndText(
+                                  text: 'My Body Condition',
+                                ),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 3),
+                                      child: ArrowContainer.defaultIcon(),
                                     ),
-                                  )
-                                ],
-                              )
-                            ],
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 20),
+                                      child: ArrowContainer(
+                                        padding: EdgeInsets.all(3.0),
+                                        icon: Icons.arrow_forward,
+                                        iconSize: 10,
+                                        iconColor: Colors.white,
+                                        backgroundColor: Colors.transparent,
+                                        borderColor: Colors.grey,
+                                      ),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
-                        Expanded(
-                          
-                          child: ListView.builder(
-                            itemCount: _organs.length,
-                            itemBuilder: (context, index) {
-                          return OrgansWidget(organImageLink: _organs['Organ Link'],organName: _organs['Organ Name'],)
-                        },),),
+                          Expanded(
+                            child: Container(
+                              child: ListView.builder(
+                                physics: ScrollPhysics(),
+                                itemCount: _organs.length,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      print(_organs[index]['Organ Name']);
+                                    },
+                                    child: OrgansWidget(
+                                      organImageLink: _organs[index]
+                                          ['Organ Link'],
+                                      // organName: _organs[index]['Organ Name'],
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
