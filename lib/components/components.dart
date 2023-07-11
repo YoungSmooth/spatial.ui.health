@@ -59,6 +59,7 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
     {'Organ Link': 'assets/liver.png', 'Organ Name': 'Liver'},
     {'Organ Link': 'assets/brain.png', 'Organ Name': 'Brain'},
   ];
+  String selectedOrgan = 'assets/heart.png';
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -204,7 +205,7 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 10),
                                     child: Image.asset(
-                                      'assets/heart.png',
+                                      selectedOrgan,
                                     ).animate(
                                       autoPlay: true,
                                       onComplete: (controller) {
@@ -716,7 +717,10 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                 itemBuilder: (context, index) {
                                   return GestureDetector(
                                     onTap: () {
-                                      print(_organs[index]['Organ Name']);
+                                      setState(() {
+                                        selectedOrgan =
+                                            _organs[index]['Organ Link'];
+                                      });
                                     },
                                     child: OrgansWidget(
                                       organImageLink: _organs[index]
