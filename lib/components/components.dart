@@ -60,6 +60,7 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
     {'Organ Link': 'assets/brain.png', 'Organ Name': 'Brain'},
   ];
   String selectedOrgan = 'assets/heart.png';
+  String selectedOrganName = 'Heart';
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -99,7 +100,7 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                           padding: const EdgeInsets.only(left: 5),
                           child: CurvedContainer(
                             BlueIconAndText(
-                              text: 'My Heart',
+                              text: 'My $selectedOrganName',
                             ),
                           ),
                         ),
@@ -330,58 +331,59 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                           padding:
                                               const EdgeInsets.only(top: 10),
                                           child: Container(
-                                              decoration: BoxDecoration(
-                                                boxShadow: <BoxShadow>[
-                                                  BoxShadow(
-                                                    color: Colors.black,
-                                                    offset: Offset(0, 3),
-                                                    blurRadius: 0.001,
-                                                    spreadRadius: 0.001,
+                                            decoration: BoxDecoration(
+                                              boxShadow: <BoxShadow>[
+                                                BoxShadow(
+                                                  color: Colors.black,
+                                                  offset: Offset(0, 3),
+                                                  blurRadius: 0.001,
+                                                  spreadRadius: 0.001,
+                                                ),
+                                                BoxShadow(
+                                                  color: Colors.grey.shade800,
+                                                  offset: Offset(0, 3),
+                                                  blurRadius: 0.01,
+                                                  spreadRadius: 0.01,
+                                                ),
+                                              ],
+                                              color: Colors.black45,
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                            ),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            left: 10),
+                                                    child: Text(
+                                                      'Search...',
+                                                      style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 12,
+                                                      ),
+                                                    ),
                                                   ),
-                                                  BoxShadow(
-                                                    color: Colors.grey.shade800,
-                                                    offset: Offset(0, 3),
-                                                    blurRadius: 0.01,
-                                                    spreadRadius: 0.01,
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            right: 10),
+                                                    child: Icon(
+                                                      Icons.search,
+                                                      color: Colors.white,
+                                                      size: 13,
+                                                    ),
                                                   ),
                                                 ],
-                                                color: Colors.black45,
-                                                borderRadius:
-                                                    BorderRadius.circular(20),
                                               ),
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(8.0),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              left: 10),
-                                                      child: Text(
-                                                        'Search...',
-                                                        style: TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              right: 10),
-                                                      child: Icon(
-                                                        Icons.search,
-                                                        color: Colors.white,
-                                                        size: 13,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              )),
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -389,7 +391,8 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                   Column(
                                     children: [
                                       BlueIconAndText(
-                                          text: 'My Heart Condition'),
+                                          text:
+                                              'My $selectedOrganName Condition'),
                                       Padding(
                                         padding: const EdgeInsets.only(top: 10),
                                         child: Row(
@@ -397,26 +400,28 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             HeartConditionContainer(
+                                              gradient: kBlueEmpty,
                                               firstIcon: Icons
                                                   .wallet_membership_outlined,
                                               secondIcon: Icons.label,
                                               firstText: 'Blood Status',
-                                              firstText2: '118/70',
+                                              firstText2: '116/70',
                                               secondText: '116',
-                                              secondText2: 'mm',
+                                              secondText2: 'pm',
                                               color: KGrey,
                                             ),
                                             SizedBox(
                                               width: 5,
                                             ),
                                             HeartConditionContainer(
+                                              gradient: kBlueEmpty,
                                               firstIcon: Icons
                                                   .wallet_membership_outlined,
                                               secondIcon: Icons.label,
-                                              firstText: 'Blood Status',
-                                              firstText2: '118/70',
-                                              secondText: '116',
-                                              secondText2: 'mm',
+                                              firstText: 'Heart Rate',
+                                              firstText2: '120 bpm',
+                                              secondText: '120',
+                                              secondText2: 'bpm',
                                               color: KGrey,
                                             ),
                                           ],
@@ -430,12 +435,13 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           HeartConditionContainer(
+                                            gradient: kBlueEmpty,
                                             firstIcon: Icons
                                                 .wallet_membership_outlined,
                                             secondIcon: Icons.label,
-                                            firstText: 'Blood Status',
-                                            firstText2: '118/70',
-                                            secondText: '116',
+                                            firstText: 'Blood Count',
+                                            firstText2: '80-90',
+                                            secondText: '80',
                                             secondText2: 'mm',
                                             color: KGrey,
                                           ),
@@ -443,13 +449,14 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                             width: 5,
                                           ),
                                           HeartConditionContainer(
+                                            gradient: kBlueEmpty,
                                             firstIcon: Icons
                                                 .wallet_membership_outlined,
-                                            secondIcon: Icons.label,
-                                            firstText: 'Blood Status',
-                                            firstText2: '118/70',
-                                            secondText: '116',
-                                            secondText2: 'mm',
+                                            secondIcon: Icons.line_axis,
+                                            firstText: 'Glucose Level',
+                                            firstText2: '230/ml',
+                                            secondText: '230',
+                                            secondText2: 'ml',
                                             color: KGrey,
                                           ),
                                         ],
@@ -533,11 +540,11 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                         padding: const EdgeInsets.only(top: 10),
                                         child: Container(
                                           decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              border: Border.all(
-                                                  color: Colors.grey,
-                                                  width: 0.5)),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            border: Border.all(
+                                                color: Colors.grey, width: 0.5),
+                                          ),
                                           child: Padding(
                                             padding: const EdgeInsets.all(3.0),
                                             child: Column(
@@ -717,15 +724,20 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                 itemBuilder: (context, index) {
                                   return GestureDetector(
                                     onTap: () {
-                                      setState(() {
-                                        selectedOrgan =
-                                            _organs[index]['Organ Link'];
-                                      });
+                                      setState(
+                                        () {
+                                          selectedOrgan =
+                                              _organs[index]['Organ Link'];
+                                          selectedOrganName =
+                                              _organs[index]['Organ Name'];
+                                        },
+                                      );
                                     },
                                     child: OrgansWidget(
+                                      check: false,
                                       organImageLink: _organs[index]
                                           ['Organ Link'],
-                                      // organName: _organs[index]['Organ Name'],
+                                      organName: _organs[index]['Organ Name'],
                                     ),
                                   );
                                 },
@@ -758,6 +770,7 @@ class HeartConditionContainer extends StatelessWidget {
     required this.secondText,
     required this.secondText2,
     required this.color,
+    required this.gradient,
   });
   final IconData firstIcon;
   final IconData secondIcon;
@@ -766,13 +779,18 @@ class HeartConditionContainer extends StatelessWidget {
   final String secondText;
   final String secondText2;
   final Color color;
+  final Gradient gradient;
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.grey, width: 0.5)),
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            color: Colors.grey,
+            width: 0.5,
+          ),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(3.0),
           child: Column(
@@ -791,7 +809,10 @@ class HeartConditionContainer extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                        color: color, borderRadius: BorderRadius.circular(10)),
+                      gradient: kBlue,
+                      color: color,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.only(
                           left: 10, right: 10, top: 20, bottom: 20),

@@ -11,4 +11,13 @@ Gradient kBlue = LinearGradient(
   ],
 );
 
+Gradient kBlueEmpty = LinearGradient(
+  begin: Alignment.bottomLeft,
+  end: Alignment.bottomRight,
+  colors: [
+    Colors.transparent,
+    Colors.transparent,
+  ],
+);
+
 Color KGrey = Colors.grey.shade800;
