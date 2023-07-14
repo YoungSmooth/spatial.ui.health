@@ -43,10 +43,10 @@ class _DesktopScreenState extends State<DesktopScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          MainTransparentTop(),
-                          SizedBox(
-                            height: 2,
-                          ),
+                          // MainTransparentTop(),
+                          // SizedBox(
+                          //   height: 2,
+                          // ),
                           MainTransparent(),
                         ],
                       ),

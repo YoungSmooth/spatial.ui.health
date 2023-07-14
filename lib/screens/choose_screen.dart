@@ -13,8 +13,9 @@ class _ScreenSelectorState extends State<ScreenSelector> {
   @override
   Widget build(BuildContext context) {
     bool isDesktop(BuildContext context) =>
-        MediaQuery.of(context).size.width >= 1000 &&
-        MediaQuery.of(context).size.height >= 666;
+        MediaQuery.of(context).size.width >= 1000;
+    // &&
+    // MediaQuery.of(context).size.height >= 666;
     return isDesktop(context) ? const DesktopScreen() : const MobileScreen();
   }
 }
