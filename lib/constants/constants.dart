@@ -21,3 +21,7 @@ Gradient kBlueEmpty = LinearGradient(
 );
 
 Color KGrey = Colors.grey.shade800;
+
+class SvgManager {
+  static const String bgDots = 'assets/bg-dots.svg';
+}
