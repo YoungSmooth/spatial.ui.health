@@ -34,6 +34,7 @@ class OrgansWidget extends StatelessWidget {
                       height: 95,
                       width: 100,
                       fit: BoxFit.contain,
+                      color: Colors.white,
                     ),
                   ),
                 ],

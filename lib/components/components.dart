@@ -734,7 +734,7 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                       );
                                     },
                                     child: OrgansWidget(
-                                      check: false,
+                                      // check: false,
                                       organImageLink: _organs[index]
                                           ['Organ Link'],
                                       organName: _organs[index]['Organ Name'],
