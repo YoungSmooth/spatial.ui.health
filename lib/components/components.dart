@@ -3,6 +3,7 @@ import 'package:blur/blur.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:spatial_ui_health/constants/constants.dart';
 import 'package:spatial_ui_health/widgets/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MainTransparentTop extends StatelessWidget {
   const MainTransparentTop({super.key});
@@ -55,12 +56,13 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
     {'Organ Link': 'assets/heart.png', 'Organ Name': 'Heart'},
     {'Organ Link': 'assets/liver.png', 'Organ Name': 'Liver'},
     {'Organ Link': 'assets/brain.png', 'Organ Name': 'Brain'},
-    {'Organ Link': 'assets/heart.png', 'Organ Name': 'Heart'},
+    {'Organ Link': 'assets/cell.png', 'Organ Name': 'Cell'},
     {'Organ Link': 'assets/liver.png', 'Organ Name': 'Liver'},
     {'Organ Link': 'assets/brain.png', 'Organ Name': 'Brain'},
   ];
   String selectedOrgan = 'assets/heart.png';
   String selectedOrganName = 'Heart';
+  bool onTap = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -401,9 +403,8 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                           children: [
                                             HeartConditionContainer(
                                               gradient: kBlueEmpty,
-                                              firstIcon: Icons
-                                                  .wallet_membership_outlined,
-                                              secondIcon: Icons.label,
+                                              firstIcon: SvgManager.pulse1,
+                                              secondIcon: SvgManager.wave,
                                               firstText: 'Blood Status',
                                               firstText2: '116/70',
                                               secondText: '116',
@@ -415,9 +416,8 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                             ),
                                             HeartConditionContainer(
                                               gradient: kBlueEmpty,
-                                              firstIcon: Icons
-                                                  .wallet_membership_outlined,
-                                              secondIcon: Icons.label,
+                                              firstIcon: SvgManager.pulse2,
+                                              secondIcon: SvgManager.wave2,
                                               firstText: 'Heart Rate',
                                               firstText2: '120 bpm',
                                               secondText: '120',
@@ -436,9 +436,8 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                         children: [
                                           HeartConditionContainer(
                                             gradient: kBlueEmpty,
-                                            firstIcon: Icons
-                                                .wallet_membership_outlined,
-                                            secondIcon: Icons.label,
+                                            firstIcon: SvgManager.pulse3,
+                                            secondIcon: SvgManager.wave3,
                                             firstText: 'Blood Count',
                                             firstText2: '80-90',
                                             secondText: '80',
@@ -450,9 +449,8 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                           ),
                                           HeartConditionContainer(
                                             gradient: kBlueEmpty,
-                                            firstIcon: Icons
-                                                .wallet_membership_outlined,
-                                            secondIcon: Icons.line_axis,
+                                            firstIcon: SvgManager.pulse3,
+                                            secondIcon: SvgManager.wave5,
                                             firstText: 'Glucose Level',
                                             firstText2: '230/ml',
                                             secondText: '230',
@@ -550,7 +548,7 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                             child: Column(
                                               children: [
                                                 IconAndColumn(
-                                                  icon: Icons.chair,
+                                                  icon: SvgManager.pulse1,
                                                   text: 'Next Checkup',
                                                   text2: 'Sun, 09 Jul',
                                                 ),
@@ -730,11 +728,12 @@ class _TransparentBackgroundMainState extends State<TransparentBackgroundMain> {
                                               _organs[index]['Organ Link'];
                                           selectedOrganName =
                                               _organs[index]['Organ Name'];
+                                          onTap = true;
                                         },
                                       );
                                     },
                                     child: OrgansWidget(
-                                      // check: false,
+                                      // check: true,
                                       organImageLink: _organs[index]
                                           ['Organ Link'],
                                       organName: _organs[index]['Organ Name'],
@@ -772,8 +771,8 @@ class HeartConditionContainer extends StatelessWidget {
     required this.color,
     required this.gradient,
   });
-  final IconData firstIcon;
-  final IconData secondIcon;
+  final String firstIcon;
+  final String secondIcon;
   final String firstText;
   final String firstText2;
   final String secondText;
@@ -803,10 +802,11 @@ class HeartConditionContainer extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(
-                    secondIcon,
-                    color: Colors.white,
-                  ),
+                  SvgPicture.asset(secondIcon),
+                  // Icon(
+                  //   secondIcon,
+                  //   color: Colors.white,
+                  // ),
                   Container(
                     decoration: BoxDecoration(
                       gradient: kBlue,
@@ -852,7 +852,8 @@ class IconAndColumn extends StatelessWidget {
     required this.text,
     required this.text2,
   });
-  final IconData icon;
+  // final IconData icon;
+  final String icon;
   final String text;
   final String text2;
 
@@ -862,11 +863,15 @@ class IconAndColumn extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.all(15.0),
-          child: Icon(
+          child: SvgPicture.asset(
             icon,
-            size: 15,
             color: Colors.white,
           ),
+          // Icon(
+          //   icon,
+          //   size: 15,
+          //   color: Colors.white,
+          // ),
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.start,

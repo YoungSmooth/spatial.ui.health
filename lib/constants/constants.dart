@@ -23,5 +23,11 @@ Gradient kBlueEmpty = LinearGradient(
 Color KGrey = Colors.grey.shade800;
 
 class SvgManager {
-  static const String bgDots = 'assets/bg-dots.svg';
+  static const String pulse1 = 'assets/pulse1.svg';
+  static const String pulse2 = 'assets/pulse2.svg';
+  static const String pulse3 = 'assets/pulse3.svg';
+  static const String wave = 'assets/wave.svg';
+  static const String wave2 = 'assets/wave2.svg';
+  static const String wave3 = 'assets/wave3.svg';
+  static const String wave5 = 'assets/wave5.svg';
 }

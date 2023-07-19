@@ -12,7 +12,7 @@ class _MobileScreenState extends State<MobileScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('mobile'),
+        child: Text('mobile view coming soon'),
       ),
     );
   }
